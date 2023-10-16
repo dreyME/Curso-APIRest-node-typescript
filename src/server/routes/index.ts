@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import { StatusCodes } from 'http-status-codes';
+import { CidadesController } from '../controllers';
 
 const router = Router();
 
@@ -15,8 +16,14 @@ router.post('/teste', (req, res) => {
 }); 
 
 
+router
+    .get('/cidades', CidadesController.getAllValidation, CidadesController.getAll)
+    .post('/cidades', CidadesController.createValidation , CidadesController.create); 
 
-
+router
+    .get('/cidades/:id', CidadesController.getByIdValidation, CidadesController.getById)
+    .put('/cidades/:id', CidadesController.UpdateByIdValidation, CidadesController.UpdateById)
+    .delete('/cidades/:id', CidadesController.DeleteByIdValidation, CidadesController.DeleteById);
 
 
 

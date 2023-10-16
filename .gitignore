@@ -1,5 +1,8 @@
 /node_modules
 
+/build
+/coverage
+
 .env
 
 só pra separar as pastas.txt
